@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<!--init driver-->
+<suite name="Smoke">
+
+    <groups>
+        <run>
+            <include name="smoke"/>
+            <include name="p1"/>
+            <include name="p2"/>
+        </run>
+    </groups>
+
+    <!--init driver-->
+    <test name="Search test" >
+        <classes>
+            <class name="ua.startit.SearchTest" />
+        </classes>
+    </test>
+
+    <!--init driver-->
+    <test name="Sign up test">
+        <classes>
+            <class name="ua.startit.SignUpTest"/>
+        </classes>
+    </test>
+</suite>

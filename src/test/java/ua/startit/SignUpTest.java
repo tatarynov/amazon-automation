@@ -34,7 +34,7 @@ public class SignUpTest extends BaseTest {
     }
 
     @Test
-    public void testName() throws MailIsNotReceivedException {
+    public void testName() throws MailIsNotReceivedException, InterruptedException {
         HomePage homePage = new HomePage();
         homePage.clickOnSignIn();
 
@@ -55,7 +55,8 @@ public class SignUpTest extends BaseTest {
                 "Blah-blah");
     }
 
-    private String getCode(String uuid) throws MailIsNotReceivedException {
+    private String getCode(String uuid) throws MailIsNotReceivedException, InterruptedException {
+        Thread.sleep(5000);
         List<Email> emailsList = emailService.fetch();
         for (Email email : emailsList) {
             List<String> emailTo = email.getTo();

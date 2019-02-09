@@ -4,15 +4,13 @@ package ua.startit;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 public class BaseTest {
 
     protected static final String URL = "https://www.amazon.com";
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setEnv() {
         Configuration.browser = "chrome";
         Configuration.timeout = 10000;
@@ -24,7 +22,7 @@ public class BaseTest {
         Selenide.open("/");
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void closeBrowser() {
         Selenide.close();
     }

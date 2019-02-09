@@ -26,7 +26,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean isNameDisplayed(String firstName) {
-        $(By.linkText("Hello, " + firstName)).should(Condition.visible);
+        $(By.xpath(String.format("//span[text()='Hello, %s']", firstName))).should(Condition.visible);
         return true;
     }
 }

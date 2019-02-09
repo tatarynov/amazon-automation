@@ -15,6 +15,7 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.timeout = 10000;
         Configuration.baseUrl = URL;
+        Configuration.headless = false;
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -22,8 +23,8 @@ public class BaseTest {
         Selenide.open("/");
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void closeBrowser() {
-        Selenide.close();
-    }
+//    @AfterMethod(alwaysRun = true)
+//    public void closeBrowser() {
+//        Selenide.close();
+//    }
 }

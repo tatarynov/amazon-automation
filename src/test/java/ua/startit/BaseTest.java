@@ -14,7 +14,7 @@ import ua.startit.support.Properties;
 public class BaseTest {
 
     private Properties properties = Properties.getInstance();
-
+    protected HomePage homePage;
     private static final Logger LOG = LoggerFactory.getLogger(BaseTest.class);
 
     @BeforeSuite(alwaysRun = true)
@@ -31,7 +31,7 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void openHomePage() {
-        Selenide.open("/", HomePage.class);
+        homePage = Selenide.open("/", HomePage.class);
     }
 
 //    @AfterMethod(alwaysRun = true)

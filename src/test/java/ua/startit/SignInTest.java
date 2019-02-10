@@ -21,7 +21,6 @@ public class SignInTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Test(groups = {"Smoke", "Regression"})
     public void signTest() {
-        HomePage homePage = new HomePage();
         homePage
                 .clickOnSignIn()
                 .login(EMAIL_ADDRESS, PASSWORD, new UiLoginStrategy());

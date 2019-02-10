@@ -1,5 +1,9 @@
 package ua.startit;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,6 +20,9 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Epic("Login and Registration")
+@Feature("Sign up")
+@Severity(SeverityLevel.CRITICAL)
 public class SignUpTest extends BaseTest {
 
     static final String FIRST_NAME = "Some";

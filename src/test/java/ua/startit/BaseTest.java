@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
+import ua.startit.pageobjects.HomePage;
 import ua.startit.support.Properties;
 
 
@@ -30,7 +31,7 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void openHomePage() {
-        Selenide.open("/");
+        Selenide.open("/", HomePage.class);
     }
 
 //    @AfterMethod(alwaysRun = true)

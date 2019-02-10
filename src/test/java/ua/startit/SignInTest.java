@@ -24,9 +24,7 @@ public class SignInTest extends BaseTest {
         HomePage homePage = new HomePage();
         homePage
                 .clickOnSignIn()
-                .setUsername(formattedEmailAddress)
-                .setPassword(PASSWORD)
-                .submit();
+                .login(EMAIL_ADDRESS, PASSWORD, new UiLoginStrategy());
 
         Assert.assertTrue(homePage.isNameDisplayed(FIRST_NAME),
                 "Blah-blah");

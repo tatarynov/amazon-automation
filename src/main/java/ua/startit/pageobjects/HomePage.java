@@ -1,31 +1,37 @@
 package ua.startit.pageobjects;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 public class HomePage extends BasePage {
 
-    private By inputFieldLocator = By.id("twotabsearchtextbox");
-    private By signIn = By.cssSelector("#nav-link-accountList");
+    @FindBy(id = "twotabsearchtextbox")
+    private SelenideElement searchInputField;
+
+    @FindBy(css = "#nav-link-accountList")
+    private SelenideElement signIn;
 
 
     @Step("Search for {} text")
     public void search(String text) {
-        $(inputFieldLocator)
+        searchInputField
                 .setValue(text)
                 .submit();
     }
 
     @Step("Click on Sign in button")
     public SignInPage clickOnSignIn() {
-        $(signIn)
+        signIn
                 .should(Condition.enabled)
                 .click();
 
-        return new SignInPage();
+        return page(SignInPage.class);
     }
 
     @Step("Check if {} is displayed")

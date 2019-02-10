@@ -1,28 +1,16 @@
 package ua.startit.pageobjects;
 
 import org.openqa.selenium.By;
+import ua.startit.LoginStrategy;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class SignInPage {
 
-    private By username = By.id("ap_email");
-    private By password = By.id("ap_password");
-    private By submit = By.id("signInSubmit");
     private By signUpButton = By.id("auth-create-account-link");
 
-    public SignInPage setUsername(String username) {
-        $(this.username).setValue(username);
-        return this;
-    }
-
-    public SignInPage setPassword(String password) {
-        $(this.password).setValue(password);
-        return this;
-    }
-
-    public HomePage submit() {
-        $(submit).click();
+    public HomePage login(String username, String password, LoginStrategy strategy) {
+        strategy.login(username, password);
         return new HomePage();
     }
 
